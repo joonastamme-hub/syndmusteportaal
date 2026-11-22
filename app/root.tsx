@@ -39,3 +39,12 @@ export default function App() {
     </ThemeProvider>
   );
 }
+
+// Näidatakse /admin esmasel avamisel, kuni clientLoader andmed toob.
+export function HydrateFallback() {
+  return (
+    <main className="app__main">
+      <p role="status">Laen…</p>
+    </main>
+  );
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export const PageHeader = () => {
   return (
@@ -15,6 +15,7 @@ export const PageHeader = () => {
       <nav className="site-nav" aria-label="Põhinavigatsioon">
         <Link to="/">Kava</Link>
         <Link to="/korraldajast">Korraldajast</Link>
+        <NavLink to="/admin">Haldus</NavLink>
       </nav>
     </div>
   );
