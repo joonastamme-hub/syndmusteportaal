@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Form } from "react-router";
+import { Form, useNavigation } from "react-router";
 
 import type {
   EventItem,
@@ -20,6 +20,11 @@ export const EventForm = ({
   submitLabel,
 }: EventFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
+  const navigation = useNavigation();
+
+  // Saatmine, ümbersuunamine ja nimekirja uus laadimine:
+  // nupp vabaneb alles pärast kõiki kolme.
+  const isSaving = navigation.state !== "idle";
 
   // Vea korral liigub fookus esimesele vigasele väljale.
   useEffect(() => {
@@ -30,12 +35,15 @@ export const EventForm = ({
 
   return (
     <Form
-      ref={formRef}
       method="post"
       className="event-form"
+      ref={formRef}
     >
       {message && (
-        <p className="event-form__message" role="alert">
+        <p
+          className="event-form__message"
+          role="alert"
+        >
           {message}
         </p>
       )}
@@ -159,8 +167,12 @@ export const EventForm = ({
         )}
       </div>
 
-      <button type="submit" className="button">
-        {submitLabel}
+      <button
+        type="submit"
+        className="button"
+        disabled={isSaving}
+      >
+        {isSaving ? "Salvestan…" : submitLabel}
       </button>
     </Form>
   );
