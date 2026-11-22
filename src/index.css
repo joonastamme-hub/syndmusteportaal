@@ -1,0 +1,250 @@
+:root {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+}
+
+.theme-light {
+  --bg: #f4efe6;
+  --fg: #2f2923;
+  --border: #d8c8b4;
+  --muted: #e9dfd1;
+  --card-bg: #fffdf8;
+  --accent: #6b4423;
+}
+
+.theme-dark {
+  --bg: #211c18;
+  --fg: #eee5da;
+  --border: #59493d;
+  --muted: #493b31;
+  --card-bg: #302822;
+  --accent: #d7ad7d;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+.page-header p {
+  margin: 0.25rem 0;
+  opacity: 0.8;
+}
+
+.theme-toggle {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--muted);
+  color: inherit;
+  cursor: pointer;
+}
+
+.event-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card-bg);
+}
+
+.event-card h3 {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--accent);
+}
+
+.event-card__time {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+}
+
+.location {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--muted);
+  font-size: 0.85rem;
+}
+
+.filter-bar {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 14px;
+}
+
+.filter-bar input[type="search"] {
+  width: 100%;
+  max-width: 32rem;
+  padding: 0.7rem 0.85rem;
+  font: inherit;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.filter-bar input[type="search"]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.toggle input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+}
+
+.filter-bar .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-bar button {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.filter-bar button:hover,
+.filter-bar button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-bar button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.filter-bar button.is-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--card-bg);
+}
+
+.result-count {
+  margin: 0 0 1rem;
+  opacity: 0.75;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 600px) {
+  .filter-bar {
+    padding: 1rem;
+  }
+
+  .filter-bar button {
+    width: 100%;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer {
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.footer p {
+  margin: 0;
+}
+
+.shadow-light {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-dark {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.event-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.site-nav a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  text-decoration: underline;
+}
